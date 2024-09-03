@@ -1,24 +1,88 @@
-import { Link } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { useState } from "react";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Pressable,
+} from "react-native";
 
-export default function AppInit() {
+export default function AppInt() {
   return (
-    <View style={style.container}>
-      <Text>App Init</Text>
-      <Link
-        href={"/pages/details"}
-        style={{ textDecorationLine: "underline", }}
-      >
-        Tela de detalhes
-      </Link>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Galeria</Text>
+        <View style={styles.images}>
+          <View>
+              <Image
+                source={require("../assets/images/react-logo.png")}
+                style={{ width: 180, height: 180 }}
+              />
+          </View>
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+          <Image
+            source={require("../assets/images/react-logo.png")}
+            style={{ width: 180, height: 180 }}
+          />
+        </View>
+      </View>
+    </ScrollView>
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: 'center',
+    flexDirection: "column",
+  },
+  title: {
+    textAlign: "left",
+    padding: 8,
+    fontSize: 36,
+    fontWeight: "600",
+  },
+  images: {
+    flex: 1,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    backgroundColor: "#facece",
+    justifyContent: "center",
+    alignContent: "space-around",
   },
 });
