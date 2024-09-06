@@ -11,28 +11,42 @@ export default function App() {
   const [peso, setPeso] = useState("");
   const [altura, setAltura] = useState("");
 
-  const handleSubmit = () => {
-    alert(`Teste ${peso}, ${altura}`);
-  };
+  function handleSubmit() {
+    alt = altura / 100;
+    imc = peso / (alt * alt);
 
+    if (imc < 18.6) {
+      alert("Você está abaixo do peso! " + imc.toFixed(2));
+    } else if (imc >= 18.6 && imc < 26.8) {
+      alert("Você está no peso ideal! " + imc.toFixed(2));
+    } else if (imc >= 26.8) {
+      alert("Você está acima do peso! " + imc.toFixed(2));
+    }
+  }
   return (
     <View style={styles.container}>
-      <Text>Peso:</Text>
-      <TextInput
-        style={styles.inputDecoration}
-        value={peso}
-        onChange={(peso) => setPeso(peso)}
-        keyboardType="numeric"
-        placeholder="00,00 Kg"
-      />
-      <Text>Altura em centimetros:</Text>
-      <TextInput
-        style={styles.inputDecoration}
-        value={altura}
-        onChange={(altura) => setAltura(altura)}
-        keyboardType="numeric"
-        placeholder="00,00 Cm"
-      />
+      <View style={styles.inputCard}>
+        <Text style={styles.textDecoration}>Peso:</Text>
+        <TextInput
+          style={styles.inputDecoration}
+          value={peso}
+          onChangeText={(peso) => setPeso(peso)}
+          keyboardType="numeric"
+          placeholder="00,00 Kg"
+        />
+      </View>
+      <View style={styles.inputCard}>
+        <Text style={styles.textDecoration}>Altura:</Text>
+        <TextInput
+          style={styles.inputDecoration}
+          value={altura}
+          onChangeText={(altura) => setAltura(altura)}
+          keyboardType="numeric"
+          placeholder="00,00 Cm"
+        />
+      </View>
+      <Text>*Altura deve ser em centimetros*</Text>
+
       <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
         <Text style={styles.textButton}>Calcular</Text>
       </TouchableOpacity>
@@ -47,6 +61,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  inputCard: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+
+  textDecoration: {
+    textAlign: "center",
+
+    fontSize: 24,
+    fontWeight: "600",
+  },
+
   inputDecoration: {
     border: 12,
     borderWidth: 1,
@@ -56,7 +84,7 @@ const styles = StyleSheet.create({
     margin: 16,
     fontSize: 16,
 
-    width: 250,
+    width: 200,
   },
   buttonStyle: {
     backgroundColor: "#2d1fee",
