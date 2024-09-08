@@ -14,7 +14,7 @@ export default function RootLayout() {
       }}
     >
       <Stack.Screen name="index" options={{ title: "Calculo de IMC" }} />
-      <Stack.Screen name="pages/details/index" options={{ title: "Detalhes" }} />
+      <Stack.Screen name="pages/details/index" options={{ title: "Historico" }} />
     </Stack>
   );
 }
