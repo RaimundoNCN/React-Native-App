@@ -26,14 +26,19 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 ### The application has 3 branches:
+
 - Main:
 
-   Simple route system;
+  Simple route system;
 
 - BMI-calculation:
 
-   Calculation system with stylization;
+  Calculation system with stylization;
 
 - ScrollView-Gridlist:
 
-   A screen for grid
+  A screen for grid
+
+## App BMI-Calculation:
+
+_#_ General info.
