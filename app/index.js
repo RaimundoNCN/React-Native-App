@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import React, { useState } from "react";
 import {
   View,
@@ -46,10 +47,16 @@ export default function App() {
         />
       </View>
       <Text>*Altura deve ser em centimetros*</Text>
-
-      <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
-        <Text style={styles.textButton}>Calcular</Text>
-      </TouchableOpacity>
+      <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
+          <Text style={styles.textButton}>Calcular</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
+          <Link href={"/pages/details"} style={{ paddingHorizontal: 12 }}>
+            <Text style={styles.textButton}>Historico</Text>
+          </Link>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -66,6 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    width: 330,
   },
 
   textDecoration: {
@@ -83,7 +91,6 @@ const styles = StyleSheet.create({
     padding: 8,
     margin: 16,
     fontSize: 16,
-
     width: 200,
   },
   buttonStyle: {
@@ -91,9 +98,10 @@ const styles = StyleSheet.create({
     border: 12,
     borderWidth: 1,
     borderRadius: 15,
-
+    justifyContent: "center",
     padding: 4,
-    margin: 15,
+    marginTop: 45,
+    marginHorizontal: 22,
   },
   textButton: {
     color: "#fff",
