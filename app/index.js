@@ -17,11 +17,11 @@ export default function App() {
     imc = peso / (alt * alt);
 
     if (imc < 18.6) {
-      alert("Você está abaixo do peso! " + imc.toFixed(2));
+      alert("Você está abaixo do peso! " + imc.toFixed(1));
     } else if (imc >= 18.6 && imc < 26.8) {
-      alert("Você está no peso ideal! " + imc.toFixed(2));
+      alert("Você está no peso ideal! " + imc.toFixed(1));
     } else if (imc >= 26.8) {
-      alert("Você está acima do peso! " + imc.toFixed(2));
+      alert("Você está acima do peso! " + imc.toFixed(1));
     }
   }
   return (
@@ -51,7 +51,15 @@ export default function App() {
         <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
           <Text style={styles.textButton}>Calcular</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonStyle} onPress={handleSubmit}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() =>
+            navigation.navigator("details", {
+              imc,
+              peso,
+              altura,
+            })
+          }>
           <Link href={"/pages/details"} style={{ paddingHorizontal: 12 }}>
             <Text style={styles.textButton}>Historico</Text>
           </Link>
